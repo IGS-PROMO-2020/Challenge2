@@ -30,7 +30,7 @@
                                     <select name="compagnie" id="" class="form-control" required>
                                         <option selected disabled>Choisir compagnie de transport</option>
                                         <?php while ($doncomphnie=mysqli_fetch_array($mareq)) {?>
-                                            <option value="<?php echo ($doncomphnie['nom']); ?>"><?php echo ($doncomphnie['nom']); ?></option>
+                                            <option value="<?php echo ($doncomphnie['id']); ?>"><?php echo ($doncomphnie['nom']); ?></option>
                                         <?php } ?>
                                     </select>
 							</div>
@@ -43,7 +43,7 @@
 									<select name="ville_depart" id="" class="form-control" required>
                                         <option selected disabled>Choisir la ville de départ</option>
                                         <?php while ($donville=mysqli_fetch_array($mareqville)) {?>
-                                            <option value="<?php echo ($donville['ville']); ?>"><?php echo ($donville['ville']); ?></option>
+                                            <option value="<?php echo ($donville['id_ville']); ?>"><?php echo ($donville['ville']); ?></option>
                                         <?php } ?>
                                     </select>
 								</div>
@@ -56,7 +56,7 @@
                                     <select name="ville_arrivee" id="" class="form-control" required>
                                         <option selected disabled>Choisir la ville d'arrivée</option>
                                         <?php while ($donvillea=mysqli_fetch_array($mareqvillea)) {?>
-                                            <option value="<?php echo ($donvillea['ville']); ?>"><?php echo ($donvillea['ville']); ?></option>
+                                            <option value="<?php echo ($donvillea['id_ville']); ?>"><?php echo ($donvillea['ville']); ?></option>
                                         <?php } ?>
                                     </select>
 								</div>

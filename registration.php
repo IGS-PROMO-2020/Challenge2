@@ -2,17 +2,17 @@
 //appel du fichier de connexion
 include "config/connexion.php";
 
-//requete pour afficher la donnees de la table compagnie dans la selection compagnie du formulaire
+//requete pour afficher les donnees de la table compagnie dans la selection compagnie du formulaire
 $reqeteCompagnie= 'SELECT * FROM compagnies ORDER BY id ASC';
-$mareq = mysqli_query($connect, $reqeteCompagnie) or die ('Erreur SQL !'.$reqeteCompagnie.'<br/>'.mysql_error());
+$mareq = mysqli_query($connect, $reqeteCompagnie) or die ('Erreur SQL !'.$reqeteCompagnie.'<br/>'.mysqli_error($connect));
 
 //requete pour afficher la donnees de la table ville dans la selection ville de depart du formulaire
-$reqeteVille= 'SELECT * FROM ville ORDER BY id ASC';
-$mareqville = mysqli_query($connect, $reqeteVille) or die ('Erreur SQL !'.$reqeteVille.'<br/>'.mysql_error());
+$reqeteVille= 'SELECT * FROM ville ORDER BY id_ville ASC';
+$mareqville = mysqli_query($connect, $reqeteVille) or die ('Erreur SQL !'.$reqeteVille.'<br/>'.mysqli_error($connect));
 
 //requete pour afficher la donnees de la table ville dans la selection ville d'arrivée du formulaire
-$reqeteVillea= 'SELECT * FROM ville ORDER BY id ASC';
-$mareqvillea = mysqli_query($connect, $reqeteVillea) or die ('Erreur SQL !'.$reqeteVillea.'<br/>'.mysql_error());
+$reqeteVillea= 'SELECT * FROM ville ORDER BY id_ville ASC';
+$mareqvillea = mysqli_query($connect, $reqeteVillea) or die ('Erreur SQL !'.$reqeteVillea.'<br/>'.mysqli_error($connect));
 
 //enregistrement des données saisies dans le formulaire
 
@@ -31,9 +31,9 @@ if (isset($_POST['enregistrer'])) {
     else {
        
      //requete d'insertion des données
-     $requeteInsert="INSERT INTO client (nom_prenoms, compagnie, ville_depart, ville_arrivee, date_v, heure_v) 
+     $requeteInsert="INSERT INTO clients (nom_prenoms, compagnie, ville_depart, ville_arrivee, date_voyage, heure_voyage) 
      VALUES ('$nom', '$compagnie', '$villed', '$villea', '$datev', '$heurev')";
-     mysqli_query($connect, $requeteInsert) or die ('Erreur SQL !'.$requeteInsert.'<br/>'.mysql_error());
+     mysqli_query($connect, $requeteInsert) or die ('Erreur SQL !'.$requeteInsert.'<br/>'.mysqli_error($connect));
      
      //Message de confirmation
      echo '<div class="alert alert-success">';
